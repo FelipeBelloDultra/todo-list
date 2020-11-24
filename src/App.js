@@ -1,11 +1,17 @@
 import React from 'react';
 
+import Home from './pages/Home';
+
+import AppProvider from './hooks';
+
 import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <AppProvider>
+        <Home />
+      </AppProvider>
       <GlobalStyles />
     </>
   );
