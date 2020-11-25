@@ -2,18 +2,20 @@ import React from 'react';
 
 import { useTasksDone } from '../../hooks/tasksDone';
 
-import { Container } from './styles';
+import { HeaderContainer } from './styles';
 
 const Header = () => {
-  const { dones, incrementTasks } = useTasksDone();
+  const { dones } = useTasksDone();
 
   return (
-    <Container>
-      <h1>{dones}</h1>
-      <button type="button" onClick={incrementTasks}>
-        Increment
+    <HeaderContainer>
+      <h1>
+        <span>{dones}</span> Tarefas concluídas
+      </h1>
+      <button type="button" onClick={() => {}}>
+        Adicionar Tarefa
       </button>
-    </Container>
+    </HeaderContainer>
   );
 };
 

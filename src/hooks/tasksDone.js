@@ -24,6 +24,10 @@ const TasksDoneProvider = ({ children }) => {
   }, [dones]);
 
   const decrementTasks = useCallback(() => {
+    if (dones === 0) {
+      return;
+    }
+
     setDones(dones - 1);
   }, [dones]);
 
