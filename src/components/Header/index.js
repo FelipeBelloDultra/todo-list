@@ -4,7 +4,7 @@ import { useTasksDone } from '../../hooks/tasksDone';
 
 import { HeaderContainer } from './styles';
 
-const Header = () => {
+const Header = ({ openModal }) => {
   const { dones } = useTasksDone();
 
   return (
@@ -12,7 +12,7 @@ const Header = () => {
       <h1>
         <span>{dones}</span> Tarefas concluídas
       </h1>
-      <button type="button" onClick={() => {}}>
+      <button type="button" onClick={openModal}>
         Adicionar Tarefa
       </button>
     </HeaderContainer>
