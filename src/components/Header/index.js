@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { useTasksDone } from '../../hooks/tasksDone';
+import { useTasks } from '../../hooks/tasks';
 
 import { HeaderContainer } from './styles';
 
 const Header = ({ openModal }) => {
-  const { dones } = useTasksDone();
+  const { dones } = useTasks();
 
   return (
     <HeaderContainer>

@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { TasksDoneProvider } from './tasksDone';
+import { TasksProvider } from './tasks';
 
-const AppProvider = ({ children }) => (
-  <TasksDoneProvider>{children}</TasksDoneProvider>
-);
+const AppProvider = ({ children }) => <TasksProvider>{children}</TasksProvider>;
 
 export default AppProvider;

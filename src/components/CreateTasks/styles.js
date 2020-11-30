@@ -22,7 +22,7 @@ export const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   padding: 50px 10px 10px 10px;
 
-  button {
+  .btn-save-task {
     height: 20px;
     width: 20px;
     background: #347aeb;
@@ -59,6 +59,38 @@ export const ModalContainer = styled.div`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+  }
+`;
+
+export const FormTask = styled.form`
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    border: 1px solid #347aeb;
+    border-radius: 5px;
+    height: 180px;
+    width: 100%;
+    padding: 15px 20px 14px;
+    margin-bottom: 20px;
+    resize: none;
+  }
+
+  button {
+    border: 1px solid #347aeb;
+    background: #347aeb;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 18px;
+    height: 35px;
+    padding: 0 10px;
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+      background: transparent;
+      color: #347aeb;
     }
   }
 `;
