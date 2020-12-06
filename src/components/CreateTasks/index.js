@@ -15,19 +15,22 @@ const CreateTasks = ({ closeModal }) => {
     descriptionRef.current.focus();
   }, []);
 
-  const handleAdd = useCallback((event) => {
-    event.preventDefault();
+  const handleAdd = useCallback(
+    (event) => {
+      event.preventDefault();
 
-    const description = descriptionRef.current.value;
+      const description = descriptionRef.current.value;
 
-    const data = { description };
+      const data = { description };
 
-    handleCreateNewTask(data);
+      handleCreateNewTask(data);
 
-    descriptionRef.current.value = '';
+      descriptionRef.current.value = '';
 
-    closeModal();
-  }, []);
+      closeModal();
+    },
+    [closeModal, handleCreateNewTask]
+  );
 
   return (
     <Container>

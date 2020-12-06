@@ -47,15 +47,17 @@ const TasksProvider = ({ children }) => {
   }, [dones]);
 
   const decrementTasks = useCallback(() => {
-    if (dones === 0) {
-      return;
+    if (dones >= 0) {
+      setDones(dones - 1);
     }
-
-    setDones(dones - 1);
   }, [dones]);
 
   const handleCreateNewTask = useCallback((data) => {
     const { description } = data;
+
+    if (!description) {
+      return;
+    }
 
     const newTasks = {
       id: uuidv4(),
