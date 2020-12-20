@@ -52,6 +52,27 @@ const TasksProvider = ({ children }) => {
     }
   }, [dones]);
 
+  const handleDoneTask = useCallback(
+    (id) => {
+      const newTask = tasks.map((task) => {
+        if (task.id === id) {
+          if (task.check) {
+            decrementTasks();
+          } else {
+            incrementTasks();
+          }
+
+          task.check = !task.check;
+        }
+
+        return task;
+      });
+
+      setTasks(newTask);
+    },
+    [tasks, decrementTasks, incrementTasks]
+  );
+
   const handleCreateNewTask = useCallback((data) => {
     const { description } = data;
 
@@ -74,8 +95,7 @@ const TasksProvider = ({ children }) => {
         tasks,
         dones,
         handleCreateNewTask,
-        incrementTasks,
-        decrementTasks,
+        handleDoneTask,
       }}
     >
       {children}

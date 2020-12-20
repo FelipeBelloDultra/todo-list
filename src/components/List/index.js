@@ -5,18 +5,25 @@ import { Container, ListTasks } from './styles';
 import { useTasks } from '../../hooks/tasks';
 
 const List = () => {
-  const { tasks } = useTasks();
+  const { tasks, handleDoneTask } = useTasks();
 
   return (
     <Container>
       {tasks.length ? (
         <>
           {tasks.map((task, i) => (
-            <ListTasks key={task.id}>
+            <ListTasks key={task.id} className={task.check && 'checked'}>
+              <span>{i + 1}</span>
+
               <div className="task-description">
-                <span>{i + 1}</span>
                 <p>{task.description}</p>
               </div>
+
+              <input
+                type="checkbox"
+                checked={task.check}
+                onChange={() => handleDoneTask(task.id)}
+              />
             </ListTasks>
           ))}
         </>
